@@ -1,5 +1,7 @@
 <template>
   <v-app dark>
+    <notifications group="all" position="bottom center"></notifications>
+
     <v-navigation-drawer
       v-model="drawer"
       :mini-variant="miniVariant"

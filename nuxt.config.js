@@ -26,43 +26,69 @@ export default {
   /*
    ** Global CSS
    */
-  css: [],
+  css: ['swiper/dist/css/swiper.css', '~/assets/main.scss'],
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [],
+  plugins: [
+    { src: '~/plugins/startup', client: true },
+    '~/plugins/axios',
+    '~/plugins/vue-phone-number-input',
+    '~/plugins/composition-api',
+    { src: '~/plugins/notification.js', mode: 'client' },
+    { src: '~/plugins/swiper.js', ssr: false }
+  ],
   /*
    ** Nuxt.js dev-modules
    */
-  buildModules: [
-    // Doc: https://github.com/nuxt-community/eslint-module
-    '@nuxtjs/eslint-module',
-    '@nuxtjs/vuetify'
-  ],
+  buildModules: ['@nuxtjs/eslint-module', '@nuxtjs/vuetify'],
   /*
    ** Nuxt.js modules
    */
-  modules: [
-    // Doc: https://axios.nuxtjs.org/usage
-    '@nuxtjs/axios',
-    '@nuxtjs/pwa',
-    // Doc: https://github.com/nuxt-community/dotenv-module
-    '@nuxtjs/dotenv'
-  ],
+  modules: ['@nuxtjs/axios', '@nuxtjs/auth', '@nuxtjs/pwa', '@nuxtjs/dotenv'],
   /*
    ** Axios module configuration
-   ** See https://axios.nuxtjs.org/options
    */
   axios: {},
+
+  auth: {
+    strategies: {
+      local: {
+        endpoints: {
+          login: false,
+          logout: false,
+          user: { url: 'auth/user', method: 'get', propertyName: 'user' }
+        }
+        // tokenRequired: true,
+        // tokenType: 'bearer'
+      }
+    },
+    redirect: {
+      login: '/login',
+      logout: '/',
+      callback: '/login',
+      home: '/'
+    },
+    plugins: [{ src: '~/plugins/axios', ssr: true }]
+  },
+
   /*
    ** vuetify module configuration
-   ** https://github.com/nuxt-community/vuetify-module
    */
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
     theme: {
       dark: true,
       themes: {
+        light: {
+          primary: '#673ab7',
+          secondary: '#3f51b5',
+          accent: '#03a9f4',
+          error: '#f44336',
+          warning: '#ffeb3b',
+          info: '#2196f3',
+          success: '#8bc34a'
+        },
         dark: {
           primary: colors.blue.darken2,
           accent: colors.grey.darken3,
