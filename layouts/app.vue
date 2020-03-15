@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-navigation-drawer v-model="drawer" fixed app>
+    <v-navigation-drawer v-model="drawer" temporary fixed app>
       <v-sheet color="primary" tile dark>
         <v-list two-line>
           <v-list-item>
@@ -12,9 +12,9 @@
             </v-avatar>
             <v-list-item-content>
               <v-list-item-title>{{ $auth.user.full_name }}</v-list-item-title>
-              <v-list-item-subtitle>{{
-                $auth.user.mobile
-              }}</v-list-item-subtitle>
+              <v-list-item-subtitle
+                >{{ $auth.user.mobile }}
+              </v-list-item-subtitle>
             </v-list-item-content>
           </v-list-item>
         </v-list>
@@ -23,26 +23,25 @@
       <v-divider></v-divider>
 
       <v-list dense>
-        <v-list-item v-for="(item, i) in items" :key="i" @click="">
+        <v-list-item v-for="(listItem, i) in items" :key="i">
           <v-list-item-icon>
-            <v-icon v-text="item.icon"></v-icon>
+            <v-icon v-text="listItem.icon"></v-icon>
           </v-list-item-icon>
 
           <v-list-item-content>
-            <v-list-item-title v-text="item.text"></v-list-item-title>
+            <v-list-item-title v-text="listItem.text"></v-list-item-title>
           </v-list-item-content>
         </v-list-item>
-
         <v-list-item>
           <v-list-item-icon>
             <v-icon>mdi-weather-night</v-icon>
           </v-list-item-icon>
           <v-switch
+            v-model="dark"
             dense
             hide-details
             class="ma-0"
             @change="toggleDark"
-            v-model="dark"
           ></v-switch>
         </v-list-item>
       </v-list>
@@ -103,12 +102,17 @@
 
 <script>
 export default {
-  name: 'app',
+  name: 'App',
+
+  asyncData() {
+    return {
+      dark: localStorage.dark === 'true'
+    }
+  },
 
   data() {
     return {
       drawer: false,
-      dark: localStorage.dark === 'true',
       title: 'The Bank',
       menuIndex: null,
       item: 0,
@@ -121,11 +125,12 @@ export default {
         { text: 'Uploads', icon: 'mdi-upload' },
         { text: 'Backups', icon: 'mdi-cloud-upload' }
       ]
+      // dark: true
     }
   },
   middleware: 'auth',
   created() {
-    console.log(this.dark)
+    // this.dark = localStorage.dark === 'true'
     switch (this.$route.name) {
       case 'search':
         this.menuIndex = 1

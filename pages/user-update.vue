@@ -3,7 +3,7 @@
     <v-app-bar app fixed>
       <v-toolbar-title><small>Update Profile</small></v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-btn :loading="processing" :disabled="processing" @click="save()" icon>
+      <v-btn :loading="processing" :disabled="processing" icon @click="save()">
         <v-icon>mdi-check</v-icon>
       </v-btn>
     </v-app-bar>
@@ -16,10 +16,10 @@
             <v-col cols="12">
               <div class="card vue-avatar-cropper-demo text-center">
                 <v-avatar
-                  @click="sheet = true"
                   :color="!user.avatar || image_upload_loading ? 'primary' : ''"
                   size="120"
                   class="elevation-10"
+                  @click="sheet = true"
                 >
                   <div v-if="image_upload_loading" class="d-flex">
                     <v-progress-circular
@@ -30,7 +30,6 @@
                   <template v-else>
                     <v-img
                       v-if="user.avatar"
-                      v-else
                       :lazy-src="user.avatar || ''"
                       :src="user.avatar || ''"
                       class="d-flex"
@@ -46,7 +45,7 @@
                 ></span>
 
                 <avatar-cropper
-                  :uploadHandler="uploadPhoto"
+                  :upload-handler="uploadPhoto"
                   trigger="#pick-avatar"
                   :labels="buttons"
                 />
@@ -75,7 +74,7 @@
 
       <v-bottom-sheet v-model="sheet">
         <v-list dense>
-          <v-list-item @click="takePhoto()" dense>
+          <v-list-item dense @click="takePhoto()">
             <v-list-item-avatar>
               <v-avatar size="32px">
                 <v-icon>mdi-camera</v-icon>
@@ -84,7 +83,7 @@
             <v-list-item-title>Take Photo</v-list-item-title>
           </v-list-item>
 
-          <v-list-item @click="pickAvatar()" dense>
+          <v-list-item dense @click="pickAvatar()">
             <v-list-item-avatar>
               <v-avatar size="32px">
                 <v-icon>mdi-image</v-icon>
@@ -93,15 +92,15 @@
             <v-list-item-title>Upload from gallery</v-list-item-title>
           </v-list-item>
 
-          <v-list-item @click="deleteAvatar()" dense>
+          <v-list-item dense @click="deleteAvatar()">
             <v-list-item-avatar>
               <v-avatar size="32px">
                 <v-icon color="red">mdi-delete</v-icon>
               </v-avatar>
             </v-list-item-avatar>
             <v-list-item-title class="red--text"
-              >Remove photo</v-list-item-title
-            >
+              >Remove photo
+            </v-list-item-title>
           </v-list-item>
         </v-list>
       </v-bottom-sheet>
@@ -149,7 +148,7 @@ export default {
   layout: 'settings',
   async asyncData({ $axios }) {
     const { user } = await $axios.$get('auth/user')
-    return { user: user }
+    return { user }
   },
   data() {
     return {
@@ -174,7 +173,7 @@ export default {
     },
     async captured(image) {
       this.image_upload_loading = true
-      let form = new FormData()
+      const form = new FormData()
       form.append('avatar', image.blob, 'avatar')
       const config = {
         headers: {
@@ -192,9 +191,9 @@ export default {
 
     async uploadPhoto(cropper) {
       this.image_upload_loading = true
-      cropper.getCroppedCanvas(this.outputOptions).toBlob(
+      await cropper.getCroppedCanvas(this.outputOptions).toBlob(
         async (blob) => {
-          let form = new FormData()
+          const form = new FormData()
           form.append('avatar', blob, 'avatar')
           const config = {
             headers: {
@@ -222,18 +221,18 @@ export default {
       this.image_upload_loading = true
       await this.$axios
         .put('auth/avatar', { delete_avatar: true })
-        .then((response) => {
+        .then(() => {
           this.user.avatar = ''
         })
         .catch()
         .finally(() => (this.image_upload_loading = false))
     },
 
-    save: async function() {
+    async save() {
       this.processing = true
       await this.$axios
         .put('auth/user', this.user)
-        .then((response) => {
+        .then(() => {
           this.$router.push('/')
         })
         .catch()

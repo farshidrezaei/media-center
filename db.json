@@ -1,12 +1,83 @@
 {
-  "posts": [
-    { "id": 1, "title": "Post 1" },
-    { "id": 2, "title": "Post 2" },
-    { "id": 3, "title": "Post 3" }
+  "musics": [
+    {
+      "id": 1,
+      "ogg": "https://dl.nex1music.ir/1398/12/20/Amin Asadi - Chejoori [128].mp3",
+      "mp3_320": "https://matthiashager.com/cc0-music/Brad_Sucks_-_07_-_Total_Breakdown.mp3",
+      "mp3_128": "https://matthiashager.com/cc0-music/Brad_Sucks_-_07_-_Total_Breakdown.mp3",
+      "title": "Chejoori",
+      "artist": "Amin Asadi",
+      "cover": "https://nex1music.ir/upload/2020-03-10/amin-asadi-chejoori-2020-03-10-19-37-59.jpg",
+      "lyric": "",
+      "comments": []
+    },
+    {
+      "id": 2,
+      "ogg": "https://dl.nex1music.ir/1398/12/20/Ehsan Papi - Age Nabashi [128].mp3",
+      "mp3_320": "https://matthiashager.com/cc0-music/Carb_On_Carb_-_01_-_Smash.mp3",
+      "mp3_128": "https://matthiashager.com/cc0-music/Carb_On_Carb_-_01_-_Smash.mp3",
+      "title": "Nabashi",
+      "artist": "Ehsan Papi",
+      "cover": "https://nex1music.ir/upload/2020-03-10/ehsan-papi-age-nabashi-2020-03-10-19-35-27.jpg",
+      "lyric": "",
+      "comments": []
+    },
+    {
+      "id": 3,
+      "ogg": "https://dl.nex1music.ir/1398/12/20/Mehdi Pourhabibi - Khanoome Ghesseh.mp3",
+      "mp3_320": "https://dl.nex1music.ir/1398/12/20/Mehdi Pourhabibi - Khanoome Ghesseh.mp3",
+      "mp3_128": "https://dl.nex1music.ir/1398/12/20/Mehdi Pourhabibi - Khanoome Ghesseh.mp3",
+      "title": "Khanoome Ghesseh",
+      "artist": "Mehdi Pourhabibi",
+      "cover": "https://nex1music.ir/upload/2020-03-10/mehdi-pourhabibi-khanoome-ghesseh-2020-03-10-18-45-21.jpg",
+      "lyric": "",
+      "comments": []
+    },
+    {
+      "id": 4,
+      "ogg": "https://dl.nex1music.ir/1398/12/18/Hosein Gol Afshan - Mehmon Nakhondeh.mp3",
+      "mp3_320": "https://dl.nex1music.ir/1398/12/18/Hosein Gol Afshan - Mehmon Nakhondeh.mp3",
+      "mp3_128": "https://dl.nex1music.ir/1398/12/18/Hosein Gol Afshan - Mehmon Nakhondeh.mp3",
+      "title": "Mehmon Nakhondeh",
+      "artist": "Hosein Gol Afshan",
+      "cover": "https://nex1music.ir/upload/2020-03-08/hosein-gol-afshan-mehmon-nakhondeh-2020-03-08-10-16-57.jpg",
+      "lyric": "عشق تو سهم منه\nعاشقتم یه تنه\nترس من از اینِکه\nاین همه عشق دلتو بزنه\nتو همه جون تنی\nخوبه ک پیش منی\nقلبم عجیب میزنه\nهر دفه ک تو صدام میزنی\nاونی ک میخوامش اون حس ارامش\nمن دارمش\nدلتنگی یعنی تو\nمیندازی قلبم رو هر دفه هی تو تپش\nدردامو میدونه حرفامو میخونه اون\nتا تهش\nاون ک باهام مونده مهمون ناخونده راه نمیده تو دلش\n..................……………............\nتویی ک توی دلم میکوبی\nتویی ک هر جوری باشی خوبی\nبگو میشه تا همیشه\nبا تو باشم\nفکر تو حتی تو خوابم بامه\nاسم تو تو همه حرفامه\nخوبه واست\nروزی صد بار هی فدا شم\n\nاونی ک میخوامش اون حس ارامش\nمن دارمش\nدلتنگی یعنی تو\nمیندازی قلبم رو هر دفه هی تو تپش\nدردامو میدونه حرفامو میخونه اون\nتا تهش\nاون ک باهام مونده مهمون ناخونده راه نمیده تو دلش",
+      "comments": []
+    },
+    {
+      "id": 5,
+      "ogg": "https://dl.nex1music.ir/1398/12/23/Saman Basiri - Khosh Be Halam.mp3",
+      "mp3_320": "https://dl.nex1music.ir/1398/12/23/Saman Basiri - Khosh Be Halam.mp3",
+      "mp3_128": "https://dl.nex1music.ir/1398/12/23/Saman Basiri - Khosh Be Halam.mp3",
+      "title": "Chejoori",
+      "artist": "Khosh Be Halam",
+      "cover": "https://nex1music.ir/upload/2020-03-13/saman-basiri-khosh-be-halam-2020-03-13-15-51-03.jpg",
+      "lyric": "تو که جونمی یکی یه دونمی خودت که منو میشناسی\nهمونقدر که من عاشقت شدم توهم عاشق و حساسی\nبگو واسه من جز عاشق شدن مگه راهی هم میمونه\nاخه لعنتی همه میدونن من بی تو میشم دیونه\nوقتی میزنی لبخندو به عشق منی پا بندو\nاب میشه تو دلم قندو با تو خوبه حالم\nچشماتو وقتی مبیندی نگام میکنی میخندی یعنی که این دلو کندی یعنی خوشبحالم یعنی خوشبحالم\nمن پای این احساس واسه تو قید یه دنیا رو زدم\nتا واسه خوشبختی تو من همه دنیامو بدم\nوقتی که تو هستی حسودی میکنم اما به خودم جز عاشق تو بودن اخه من مگه چیزی بلدم\nوقتی میزنی لبخندو به عشق منی پا بندو\nاب میشه تو دلم قندو با تو خوبه حالم\nچشماتو وقتی مبیندی نگام میکنی میخندی یعنی که این دلو کندی یعنی خوشبحالم یعنی خوشبحالم",
+      "comments": []
+    },
+    {
+      "id": 6,
+      "ogg": "https://dl.nex1music.ir/1398/12/19/Reza Ahmadi - Hashtag Ghalbami.mp3",
+      "mp3_320": "https://dl.nex1music.ir/1398/12/19/Reza Ahmadi - Hashtag Ghalbami.mp3",
+      "mp3_128": "https://dl.nex1music.ir/1398/12/19/Reza Ahmadi - Hashtag Ghalbami.mp3",
+      "title": "Hashtag Ghalbami",
+      "artist": "Reza Ahmadi",
+      "cover": "https://nex1music.ir/upload/2020-03-09/reza-ahmadi-hashtag-ghalbami-2020-03-09-20-11-22.jpg",
+      "lyric": "",
+      "comments": []
+    }
   ],
   "comments": [
-    { "id": 1, "body": "some comment", "postId": 1 },
-    { "id": 2, "body": "some comment", "postId": 1 }
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    },
+    {
+      "id": 2,
+      "body": "some comment",
+      "postId": 1
+    }
   ],
   "profile": {
     "name": "typicode"

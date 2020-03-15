@@ -15,9 +15,44 @@ export default {
         hid: 'description',
         name: 'description',
         content: process.env.npm_package_description || ''
+      },
+      {
+        name: 'msapplication-TileColor',
+        content: '#9f00a7'
+      },
+      {
+        name: 'msapplication-TileImage',
+        content: 'favicon//mstile-144x144.png'
+      },
+      {
+        name: 'theme-color',
+        content: '#ffffff'
       }
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+    link: [
+      {
+        rel: 'apple-touch-icon',
+        size: '180x180',
+        href: '/favicon/apple-touch-icon.png'
+      },
+      {
+        rel: 'icon',
+        size: '32x32',
+        type: 'image/png',
+        href: '/favicon/favicon-32x32.png'
+      },
+      {
+        rel: 'icon',
+        size: '16x16',
+        type: 'image/png',
+        href: '/favicon/favicon-16x16.png'
+      },
+      {
+        rel: 'mask-icon',
+        href: '/favicon/safari-pined-tab.svg',
+        color: '#bc5bd5'
+      }
+    ]
   },
   /*
    ** Customize the progress-bar color
@@ -26,15 +61,18 @@ export default {
   /*
    ** Global CSS
    */
-  css: ['swiper/dist/css/swiper.css', '~/assets/main.scss'],
+  css: [
+    'swiper/dist/css/swiper.css',
+    '~/assets/main.scss',
+    '~/assets/notify.scss'
+  ],
   /*
    ** Plugins to load before mounting the App
    */
   plugins: [
-    { src: '~/plugins/startup', client: true },
+    { src: '~/plugins/startup', mode: 'client' },
     '~/plugins/axios',
     '~/plugins/vue-phone-number-input',
-    '~/plugins/composition-api',
     { src: '~/plugins/notification.js', mode: 'client' },
     { src: '~/plugins/swiper.js', ssr: false }
   ],
@@ -51,6 +89,31 @@ export default {
    */
   axios: {},
 
+  pwa: {
+    manifest: {
+      name: 'MediaCenter',
+      short_name: 'MediaCenter',
+      start_url: '.',
+      display: 'standalone',
+      background_color: '#fff',
+      description: 'Simple Media Center',
+      icons: [
+        {
+          src: '~/favicon/android-chrome-192x192.png',
+          sizes: '192x192',
+          type: 'image/png'
+        },
+        {
+          src: '~/favicon/android-chrome-512x512.png',
+          sizes: '512x512',
+          type: 'image/png'
+        }
+      ]
+    },
+    icon: {
+      iconSrc: '~/favicon/android-chrome-512x512.png'
+    }
+  },
   auth: {
     strategies: {
       local: {

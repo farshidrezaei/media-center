@@ -5,12 +5,12 @@
       <v-row>
         <!-- details -->
         <v-col
-          cols="4"
           v-for="(item, index) in data.data"
           :key="`music-${index}`"
+          cols="4"
           class="d-flex pa-2 align-center"
         >
-          <v-card @click="$router.push('music')" class="fill-height" flat tile>
+          <v-card class="fill-height" flat tile @click="$router.push('music')">
             <v-img :src="item.avatar"></v-img>
 
             <p class="text-center caption ma-0">{{ item.first_name }}</p>
@@ -46,6 +46,7 @@ export default {
     return {
       data: await $axios
         .$get('https://reqres.in/api/users?page=2')
+        // eslint-disable-next-line no-console
         .catch((e) => console.log(e))
     }
   },

@@ -22,19 +22,25 @@
       </v-btn>
     </v-app-bar>
     <v-content>
-      <v-music-player
-        :data="tracks"
-        with-title
-        with-change-controls
-        with-cover
-        with-like
-        with-seek-bar
-        with-shuffle
-        with-volume
-        with-repeat
-        repeat-on
-        shuffle-on
-      ></v-music-player>
+      <!--      <v-music-player-->
+      <!--        :data="tracks"-->
+      <!--        with-title-->
+      <!--        with-change-controls-->
+      <!--        with-cover-->
+      <!--        with-like-->
+      <!--        with-seek-bar-->
+      <!--        with-shuffle-->
+      <!--        with-volume-->
+      <!--        with-repeat-->
+      <!--        repeat-on-->
+      <!--        shuffle-on-->
+      <!--      ></v-music-player>-->
+      <card>
+        <v-img :src="music.avatar"></v-img>
+        <v-card-title
+          >{{ music.first_name + ' ' + music.last_name }}
+        </v-card-title>
+      </card>
     </v-content>
   </div>
 </template>
@@ -72,10 +78,16 @@
 </style>
 
 <script>
-import VMusicPlayer from '../components/VMusicPlayer/VMusicPlayer'
+// import VMusicPlayer from '../components/VMusicPlayer/VMusicPlayer'
+import { mapState } from 'vuex'
 export default {
   layout: 'single',
-  components: { VMusicPlayer },
+  components: {
+    /* VMusicPlayer */
+  },
+  async fetch({ store, error, params }) {
+    await store.dispatch('musics/fetchMusic', params.id)
+  },
   data() {
     return {
       title: 'Eminem - Rap god',
@@ -152,6 +164,9 @@ export default {
       ]
     }
   },
+  computed: mapState({
+    music: (store) => store.musics.music
+  }),
   methods: {
     back() {
       if (window.history.length > 2) this.$router.back()

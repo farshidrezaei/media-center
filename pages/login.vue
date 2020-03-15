@@ -10,7 +10,7 @@
                   class="mb-4"
                   contain
                   height="128"
-                  src="/logo.svg"
+                  src="/favicon/logo.svg"
                 ></v-img>
                 <h3 class="title font-weight-light mb-2">The Bank</h3>
                 <span class="caption grey--text"></span>
@@ -22,9 +22,9 @@
                 <v-row justify="center" align="center">
                   <v-col cols="12">
                     <vue-phone-number-input
+                      v-model="mobileInput"
                       :dark="$vuetify.theme.dark"
                       default-country-code="IR"
-                      v-model="mobileInput"
                       @update="mobileInputUpdated"
                     />
                     <p class="caption grey--text justify text--darken-1 mt-2">
@@ -62,6 +62,7 @@
           </v-window>
         </v-col>
       </v-row>
+
       <v-footer absolute>
         <v-btn :disabled="backDisableConditions" text small @click="step--">
           Back
@@ -89,25 +90,7 @@ import VSmsVerificationInput from '../components/VSmsVerificationInput'
 export default {
   components: { VSmsVerificationInput },
   layout: 'auth',
-  computed: {
-    nextDisableConditions: function() {
-      return (
-        (!this.isValidMobileNumber && this.step === 2) ||
-        this.step === 4 ||
-        this.send_verification_code_loading ||
-        this.verification_code_loading ||
-        (this.step === 3 && this.code === null)
-      )
-    },
-    backDisableConditions: function() {
-      return (
-        this.step === 1 ||
-        this.send_verification_code_loading ||
-        this.verification_code_loading
-      )
-    }
-  },
-  data: function() {
+  data() {
     return {
       step: 1,
       mobileInput: '',
@@ -118,8 +101,26 @@ export default {
       verification_code_loading: false
     }
   },
+  computed: {
+    nextDisableConditions() {
+      return (
+        (!this.isValidMobileNumber && this.step === 2) ||
+        this.step === 4 ||
+        this.send_verification_code_loading ||
+        this.verification_code_loading ||
+        (this.step === 3 && this.code === null)
+      )
+    },
+    backDisableConditions() {
+      return (
+        this.step === 1 ||
+        this.send_verification_code_loading ||
+        this.verification_code_loading
+      )
+    }
+  },
   methods: {
-    mobileInputUpdated: function(val) {
+    mobileInputUpdated(val) {
       this.mobile = val.formattedNumber
       this.isValidMobileNumber = val.isValid
     },
@@ -141,6 +142,7 @@ export default {
                 text: response.data.message
               })
             })
+            // eslint-disable-next-line no-console
             .catch((error) => console.log(error))
             .finally(() => (this.send_verification_code_loading = false))
           break
@@ -156,20 +158,21 @@ export default {
                 this.$notify({
                   group: 'all',
                   type: 'success',
-                  text: 'Thank you for registration.'
+                  text: 'Thank you for registration.',
+                  duration: -1
                 })
                 this.$router.push('/user-update')
               })
             })
             .catch((error) => {
-              console.log(error)
-              if (Number(error.status) === 403) {
-                this.$notify({
-                  group: 'all',
-                  type: 'danger',
-                  text: 'Err.'
-                })
-              }
+              // eslint-disable-next-line no-console
+              console.log(error.response)
+              this.$notify({
+                text: error.response.data.message,
+                group: 'all',
+                type: 'error',
+                width: '100%'
+              })
             })
             .finally(() => (this.verification_code_loading = false))
 

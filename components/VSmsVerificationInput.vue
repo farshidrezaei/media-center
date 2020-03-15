@@ -1,19 +1,19 @@
 <template>
   <v-row dense dir="ltr" justify="center" align="center">
-    <v-col cols="2" v-for="(item, index) in amount" :key="`code_${index}`">
+    <v-col v-for="(item, index) in amount" :key="`code_${index}`" cols="2">
       <v-text-field
+        :key="`code${index}`"
+        :ref="`code_${index}`"
+        v-model="code[index]"
         solo-inverted
         dense
         class="code-input"
-        :key="`code${index}`"
-        :ref="`code_${index}`"
-        @paste="handlePaste"
         title="code"
         maxlength="1"
         :autofocus="index === 0"
+        @paste="handlePaste"
         @input="handleInput($event, index)"
         @keyup.delete="onDelete($event, index)"
-        v-model="code[index]"
       ></v-text-field>
     </v-col>
   </v-row>
@@ -28,12 +28,20 @@ export default {
       default: 6
     }
   },
+  data() {
+    return {
+      code: [],
+      currentIndex: 0
+    }
+  },
   created() {
     this.code = new Array(this.amount).fill('')
   },
   methods: {
     handleInput($event, index) {
       this.currentIndex = index
+      // eslint-disable-next-line no-console
+      console.log($event)
       this.code[index] = this.validateNumber(this.code[index])
       if (this.code[index] !== '' && this.currentIndex <= this.amount - 1)
         this.currentIndex++
@@ -46,8 +54,9 @@ export default {
       }
     },
     onDelete($event, index) {
-      if (this.currentIndex !== 0 && this.code[index] === '')
+      if (this.currentIndex !== 0 && this.code[index] === '') {
         this.currentIndex = index - 1
+      }
       if (this.currentIndex >= 0) {
         this.$refs['code_' + this.currentIndex][0].focus()
         this.code[this.currentIndex] = ''
@@ -58,11 +67,11 @@ export default {
     },
     handlePaste($event) {
       $event.preventDefault()
-      let value = $event.clipboardData.getData('Text')
-      let code = value.split('')
+      const value = $event.clipboardData.getData('Text')
+      const code = value.split('')
       let status = false
       if (code.length === this.amount) {
-        code.map((item, index) => {
+        code.map((item) => {
           status = !!this.validateNumber(item)
         })
       }
@@ -72,13 +81,8 @@ export default {
         this.$refs.code_1[0].focus()
         this.$refs.code_1[0].blur()
       }
+      // eslint-disable-next-line no-console
       console.log(status)
-    }
-  },
-  data() {
-    return {
-      code: [],
-      currentIndex: 0
     }
   }
 }

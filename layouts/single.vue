@@ -8,11 +8,11 @@
 
 <script>
 export default {
-  name: 'single',
+  name: 'Single',
   middleware: 'auth',
-  created() {},
   data() {
     return {}
-  }
+  },
+  created() {}
 }
 </script>

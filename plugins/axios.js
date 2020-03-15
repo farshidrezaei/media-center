@@ -15,5 +15,5 @@ export default function({ $axios, redirect, $auth, $notify }) {
   // $axios.setHeader('Accept', 'application/json');
 
   // Set baseURL to something different
-  $axios.setBaseURL('api/v1/')
+  $axios.setBaseURL('http://localhost:3333/api/v1/')
 }

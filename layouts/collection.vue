@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <v-app-bar app fixed>
-      <v-btn @click="back()" icon>
+      <v-btn icon @click="back()">
         <v-icon>mdi-arrow-left</v-icon>
       </v-btn>
 
@@ -20,12 +20,12 @@
 
 <script>
 export default {
-  name: 'collection',
+  name: 'Collection',
   middleware: 'auth',
-  created() {},
   data() {
     return {}
   },
+  created() {},
   methods: {
     back() {
       if (window.history.length > 2) this.$router.back()

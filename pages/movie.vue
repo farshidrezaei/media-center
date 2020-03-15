@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-app-bar app fixed>
-      <v-btn @click="back()" icon>
+      <v-btn icon @click="back()">
         <v-icon>mdi-arrow-left</v-icon>
       </v-btn>
 
@@ -89,7 +89,7 @@
                 <!-- download-links -->
                 <v-tab-item>
                   <v-list dense>
-                    <v-list-item @click="">
+                    <v-list-item>
                       <v-list-item-content>
                         <v-list-item-title>
                           <v-icon small>mdi-movie</v-icon>
@@ -99,7 +99,7 @@
                       <v-icon small color="primary">mdi-download</v-icon>
                     </v-list-item>
                     <v-divider></v-divider>
-                    <v-list-item @click="">
+                    <v-list-item>
                       <v-list-item-content>
                         <v-list-item-title>
                           <v-icon small>mdi-movie</v-icon>
@@ -121,6 +121,7 @@
                   <v-sheet>
                     <v-container class="align-end">
                       <v-textarea
+                        v-model="comment"
                         hide-details
                         placeholder="Type Comment... "
                         dense
@@ -128,7 +129,6 @@
                         filled
                         rows="1"
                         class="text--small align-end"
-                        v-model="comment"
                       >
                         <template v-slot:append-outer>
                           <v-btn icon color="primary" :disabled="!comment">

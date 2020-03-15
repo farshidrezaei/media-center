@@ -3,19 +3,20 @@
     <v-card-title v-if="title"
       >{{ title ? title : '' }}
       <v-spacer></v-spacer>
-      <v-btn v-if="link" x-small @click="$router.push(link)" text
-        >See More</v-btn
-      >
+      <v-btn v-if="link" x-small text @click="$router.push(link)"
+        >See More
+      </v-btn>
     </v-card-title>
     <v-card-text>
       <div v-swiper:albumsSwiper="albums_swiper_option">
         <div class="swiper-wrapper">
-          <div v-for="(item, index) in data.data" class="swiper-slide">
+          <div v-for="item in data" :key="item.id" class="swiper-slide">
             <v-card
-              @click="$router.push('music')"
               class="fill-height"
               flat
-              tile
+              @click="
+                $router.push({ name: 'musics-id', params: { id: item.id } })
+              "
             >
               <v-img :src="item.avatar"></v-img>
 
@@ -54,20 +55,23 @@
 
 <script>
 export default {
+  name: 'MySwiper',
   props: {
+    data: {
+      type: [Array, Object],
+      default() {
+        return []
+      }
+    },
     title: {
       type: String,
       default: ''
-    },
-    data: {
-      default: []
     },
     link: {
       type: String,
       default: ''
     }
   },
-  name: 'MySwiper',
   data() {
     return {
       albums_swiper_option: {

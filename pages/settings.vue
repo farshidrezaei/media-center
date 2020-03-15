@@ -7,7 +7,7 @@
       scroll-target="#scrolling-techniques-5"
       scroll-threshold="80"
     >
-      <v-btn @click="back()" icon>
+      <v-btn icon @click="back()">
         <v-icon>mdi-arrow-left</v-icon>
       </v-btn>
 
@@ -40,7 +40,7 @@
       <v-list dense two-line>
         <v-subheader>Account</v-subheader>
 
-        <v-list-item @click="">
+        <v-list-item>
           <v-list-item-content>
             <v-list-item-title>{{ $auth.user.mobile }}</v-list-item-title>
             <v-list-item-subtitle
@@ -51,7 +51,7 @@
 
         <v-divider></v-divider>
 
-        <v-list-item @click="">
+        <v-list-item>
           <v-list-item-content>
             <v-list-item-title>{{
               $auth.user.username || 'Tap to specify username'
@@ -62,7 +62,7 @@
 
         <v-divider></v-divider>
 
-        <v-list-item @click="">
+        <v-list-item>
           <v-list-item-content>
             <v-list-item-title>{{ $auth.user.full_name }}</v-list-item-title>
             <v-list-item-subtitle>Bio</v-list-item-subtitle>
@@ -75,7 +75,7 @@
       <v-list dense>
         <v-subheader>Settings</v-subheader>
 
-        <v-list-item @click="">
+        <v-list-item>
           <v-list-item-icon>
             <v-icon>mdi-bell</v-icon>
           </v-list-item-icon>
@@ -86,7 +86,7 @@
 
         <v-divider inset></v-divider>
 
-        <v-list-item @click="">
+        <v-list-item>
           <v-list-item-icon>
             <v-icon>mdi-lock</v-icon>
           </v-list-item-icon>
@@ -97,7 +97,7 @@
 
         <v-divider inset></v-divider>
 
-        <v-list-item @click="">
+        <v-list-item>
           <v-list-item-icon>
             <v-icon>mdi-harddisk</v-icon>
           </v-list-item-icon>
@@ -108,7 +108,7 @@
 
         <v-divider inset></v-divider>
 
-        <v-list-item @click="">
+        <v-list-item>
           <v-list-item-icon>
             <v-icon>mdi-music</v-icon>
           </v-list-item-icon>
@@ -119,7 +119,7 @@
 
         <v-divider inset></v-divider>
 
-        <v-list-item @click="">
+        <v-list-item>
           <v-list-item-icon>
             <v-icon>mdi-laptop</v-icon>
           </v-list-item-icon>
@@ -130,7 +130,7 @@
 
         <v-divider inset></v-divider>
 
-        <v-list-item @click="">
+        <v-list-item>
           <v-list-item-icon>
             <v-icon>mdi-web</v-icon>
           </v-list-item-icon>

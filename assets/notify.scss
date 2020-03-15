@@ -1,0 +1,46 @@
+@import '~vuetify/src/styles/styles.sass';
+
+.vue-notification-dark {
+  padding: 10px !important;
+  margin: 0 5px 8em !important;
+  font-size: 12px !important;
+  color: #ffffff !important;
+  background: #44484b !important;
+  border-left: 5px solid #2295e7 ;
+  border-radius: 5px;
+  box-shadow: 0 10px 20px -8px #010101;
+  &.n-warn {
+    border-left-color: #f4c021 !important;
+  }
+
+  &.n-error {
+    border-left-color: #d63325 !important;
+  }
+
+  &.n-success {
+    border-left-color: #42a85f !important;
+  }
+}
+
+
+.vue-notification {
+  padding: 10px !important;
+  margin: 0 5px 5px !important;
+  font-size: 12px !important;
+  color: #1d1d1d !important;
+  background: #fbfbfb !important;
+  border-left: 5px solid #2295e7 ;
+  border-radius: 5px;
+  box-shadow: 0 10px 20px -8px #010101;
+  &.n-warn {
+    border-left-color: #f4b527 !important;
+  }
+
+  &.n-error {
+    border-left-color: #d33529 !important;
+  }
+
+  &.n-success {
+    border-left-color: #42a85f !important;
+  }
+}

@@ -9,8 +9,6 @@
         <v-col cols="12">
           <v-music-player
             :data="tracks"
-            @play="onPlay($event)"
-            @like="onLike($event)"
             with-title
             with-change-controls
             with-cover
@@ -25,13 +23,13 @@
             repeat-on
             shuffle-on
             internal-playlist
+            @play="onPlay($event)"
+            @like="onLike($event)"
           ></v-music-player>
         </v-col>
         <v-col cols="12">
           <v-music-player
             :data="tracks"
-            @play="onPlay($event)"
-            @like="onLike($event)"
             with-title
             with-change-controls
             with-cover
@@ -45,13 +43,13 @@
             with-comments
             repeat-on
             shuffle-on
+            @play="onPlay($event)"
+            @like="onLike($event)"
           ></v-music-player>
         </v-col>
         <v-col cols="12">
           <v-music-player
             :data="tracks"
-            @play="onPlay($event)"
-            @like="onLike($event)"
             with-title
             with-change-controls
             with-cover
@@ -66,6 +64,8 @@
             repeat-on
             shuffle-on
             background-blur
+            @play="onPlay($event)"
+            @like="onLike($event)"
           ></v-music-player>
         </v-col>
       </v-row>
@@ -117,6 +117,7 @@ export default {
   },
   methods: {
     onPlay($event) {
+      // eslint-disable-next-line no-console
       console.log($event)
     },
     onLike($event) {}

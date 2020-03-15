@@ -18,7 +18,7 @@
       <v-row>
         <v-col cols="12">
           <music-swiper
-            :data="data"
+            :data="musics"
             title="Special"
             link="musics-collection"
           ></music-swiper>
@@ -29,17 +29,21 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import MusicSwiper from '../components/MusicSwiper'
-
 export default {
   components: { MusicSwiper },
   layout: 'app',
-  async asyncData({ $axios }) {
-    return {
-      data: await $axios
-        .$get('https://reqres.in/api/users?page=2')
-        .catch((e) => console.log(e)),
-      re: await setTimeout(() => ({}), 5000)
+  async fetch({ store, error }) {
+    try {
+      await store.dispatch('musics/fetchMusics')
+    } catch (e) {
+      // eslint-disable-next-line no-console
+      console.log(e.response.status)
+      error({
+        statusCode: 503,
+        message: 'Unable to fetch Musics at this time. Please try again.'
+      })
     }
   },
   data() {
@@ -53,6 +57,9 @@ export default {
       ],
       slides: ['First', 'Second', 'Third', 'Fourth', 'Fifth']
     }
-  }
+  },
+  computed: mapState({
+    musics: (state) => state.musics.musics
+  })
 }
 </script>

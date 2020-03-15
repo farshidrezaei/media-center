@@ -23,6 +23,7 @@ export default {
     return {
       data: await $axios
         .$get('https://reqres.in/api/users?page=2')
+        // eslint-disable-next-line no-console
         .catch((e) => console.log(e))
     }
   },

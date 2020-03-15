@@ -10,7 +10,7 @@
 
 <script>
 export default {
-  name: 'setting',
+  name: 'Setting',
   middleware: 'is-auth',
   data() {
     return {}
