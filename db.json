@@ -67,6 +67,68 @@
       "comments": []
     }
   ],
+  "movies": [
+    {
+      "id": 1,
+      "link1080": "http://cdn.p30updl.com/?s=1&f=film/First_Love_2019_1080p_UPTV.co_Sub.mkv",
+      "link720": "http://cdn.p30updl.com/?s=1&f=film/First_Love_2019_720p_UPTV.co_Sub.mkv",
+      "link480": "",
+      "country": "Japan - England",
+      "director": "Takashi Mike",
+      "language": "English",
+      "gender": "Comedy - Love",
+      "score": "8",
+      "title": " First Love",
+      "cover": "https://www.uptvs.net/wp-content/uploads/2020/03/First-Love-2019-min.jpg",
+      "summary": "عشق اول فیلمی ژاپنی-بریتانیایی در ژانر درام به کارگردانی تاکاشی میکه است که در سال ۲۰۱۹ منتشر شد. از بازیگران آن می توان به بکی، بنگال، ماسایوکی دایی، مامی فوجیاوکا , ساکوراکو کونیشی اشاره کرد. این فیل در بخش دو هفته کارگردانان جشنواره کن ۲۰۱۹ نمایش داده شد.\n\n",
+      "comments": []
+    },
+    {
+      "id": 2,
+      "link1080": "http://s1.doostihaa.com/files/Movie/2015/C/Containment.2015.1080p.WEB-DL.mkv",
+      "link720": "http://s1.doostihaa.com/files/Movie/2015/C/Containment.2015.720p.WEB-DL.mkv",
+      "link480": "http://s1.doostihaa.com/files/Movie/2015/C/Containment.2015.480p.WEB-DL.mkv",
+      "country": "USA",
+      "director": "Nil Mcanry",
+      "language": "English",
+      "gender": "scientific",
+      "score": "5",
+      "title": "Containment ",
+      "cover": "https://www.doostihaa.com/img/uploads/2020/03/Containment-2015.jpg",
+      "summary": "افراد ساکن در یک آپارتمان یک روز صبح که از خواب بیدار می شوند و درمی یابند که درون ساختمان حبس شده اند! آیا آنها میتوانند دلیل حبس خود را بفهمند، یا اینکه برای پیدا کردن راه فرار یک دیگر را نابود خواهند کرد؟ شواهد از شیوع یک بیماری خبر میدهند و…",
+      "comments": []
+    },
+    {
+      "id": 3,
+      "link1080": "http://s4.doostihaa.com/files/Movie/1995/O/Outbreak.1995.1080p.Censored.Farsi.Dubbed.mkv",
+      "link720": "http://s4.doostihaa.com/files/Movie/1995/O/Outbreak.1995.720p.Censored.Farsi.Dubbed.mkv",
+      "link480": "http://s4.doostihaa.com/files/Movie/1995/O/Outbreak.1995.480p.Censored.Farsi.Dubbed.mkv",
+      "country": "USA",
+      "director": "Wolfgang Petersen",
+      "language": "English",
+      "gender": "Scientific",
+      "score": "4.1",
+      "title": "Outbreak",
+      "cover": "https://www.doostihaa.com/img/uploads/2020/03/Outbreak-1995.jpg",
+      "summary": "سال ۱۹۶۷ در یک اردوگاه سربازان مزدور، ویروسی مرگبار از قاره آفریقا وارد کشور آمریکا می\u200Cشود و در ایالت کالیفرنیا شیوع پیدا می\u200Cکند. در این شرایط، پزشکان ارتش ایالات متحده سخت تلاش می\u200Cکنند که دارویی را برای ریشه\u200Cکنی آن پیدا کنند و…",
+      "comments": []
+    },
+    {
+      "id": 4,
+      "link1080": "http://s2.doostihaa.com/Movie/2020/T/The.Grudge.2020.1080p.Censored.Farsi.Subbed.mkv",
+      "link720": "http://s2.doostihaa.com/Movie/2020/T/The.Grudge.2020.720p.Censored.Farsi.Subbed.mkv",
+      "link480": "http://s2.doostihaa.com/Movie/2020/T/The.Grudge.2020.480p.Censored.Farsi.Subbed.mkv",
+      "country": "Japan - USA",
+      "director": "Nikolas Pasha",
+      "language": "English",
+      "gender": "Scientific",
+      "score": "8",
+      "title": "The Grudge",
+      "cover": "https://www.doostihaa.com/img/uploads/2020/03/The-Grudge-2020.jpg",
+      "summary": "فیلم در بازه\u200Cی زمانی فیلم کینه محصول ۲۰۰۴ اتفاق می افتد. بعد از اینکه یک زن جوان در خانه خود خانواده اش را به قتل میرساند، یک مادر مجرد و کارآگاه جوان سعی در تحقیق و حل این پرونده دارند. بعداً او متوجه میشود که خانه توسط یک روح سرگردان تسخیر شده و کسانی که وارد آن میشوند با بدترین حالت ممکن، کشته میشوند. اکنون او برای نجات خود و پسرش از ارواح شیطانی از خانه نفرین شده قصد فرار دارند اما…",
+      "comments": []
+    }
+  ],
   "comments": [
     {
       "id": 1,
